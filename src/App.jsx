@@ -12,27 +12,42 @@ import Navbar from "./components/Navbar";
 
 import { Route, Routes } from "react-router-dom";
 import Dashbord from "./pages/Admin/Dashbord";
-import AllApointment from "./pages/Admin/AllApointment";
+
 import AddDoctor from "./pages/Admin/AddDoctor";
 import DoctorsList from "./pages/Admin/DoctorsList";
 import Sidebar from "./components/Sidebar";
+import AllAppointments from "./pages/Admin/AllAppointments";
+import { DoctorContext } from "./context/DoctorContext";
+import DoctorDashboard from "./pages/Doctor/DoctorDashboard";
+import DoctorAppointments from "./pages/Doctor/DoctorAppointments";
+import DoctorProfile from "./pages/Doctor/DoctorProfile";
+
 
 
 
 const App = () => {
   const { atoken } = useContext(AdminContext);
-  return atoken ? (
+  const {dToken} = useContext(DoctorContext)
+
+  return atoken || dToken ? (
     <div className="bg-[#F8F9FD]">
       <ToastContainer />
       <Navbar />
       <div className="flex items-start">
         <Sidebar/>
         <Routes>
-    <Route path='/' element={<></>} />
+          {/* Admin route */}
+    <Route path='/' element={<></>} />  
     <Route path='/admin-dashboard' element={<Dashbord />} />
-    <Route path='/all-appointments' element={<AllApointment />} />
+    <Route path='/all-appointments' element={<AllAppointments />} />
     <Route path='/add-doctor' element={<AddDoctor />} />
    <Route path='/doctor-list' element={<DoctorsList />} />
+
+     {/* doctor route */}
+
+     <Route path='/doctor-dashboard' element={<DoctorDashboard />} />
+     <Route path='/doctor-appointments' element={<DoctorAppointments />} />
+     <Route path='/doctor-Profile' element={<DoctorProfile />} />
 </Routes> I
       </div>
     </div>

@@ -12,11 +12,12 @@ const Navbar = () => {
    const logout = () => {
     navigate('/')
     atoken && setAToken('')
+    
     atoken && localStorage.removeItem('atoken')
     
    }
 
-  return (
+   return (
     <>
        <div className="mx-8 my-2 flex flex-row items-center  justify-between   text-sm ">
         <div className="flex flex-row text-xs gap-2  items-center ">
