@@ -4,7 +4,7 @@ import { AdminContext } from "../../context/AdminContext";
 import { assets } from "../../assets/assets";
 
 const Dashbord = () => {
-  const { atoken, getDashData, cancelAppointment, dashData } =
+  const { atoken, getDashData, CancelAppointment, dashData } =
     useContext(AdminContext);
 
   useEffect(() => {
@@ -73,16 +73,14 @@ const Dashbord = () => {
                   })}</p>
                   
                 </div>
-                {item.cancelled ? (
-                  <p className="text-red-400 text-xs font-medium">cancelled</p>
-                ) : (
-                  <img
-                    onClick={() => CancelAppointment(item._id)}
-                    className="w-18 cursor-pointer"
-                    src={assets.cancel_icon}
-                    alt=""
-                  />
-                )}
+                {
+              item.cancelled 
+              ?
+              <p className="text-red-400 text-xs font-medium">cancelled</p> 
+              : item.isCompleted 
+              ?<p className="text-green-500 text-xs font-medium">Completed</p> 
+               :  <img onClick={()=> CancelAppointment(item._id)} className="w-18 cursor-pointer" src={assets.cancel_icon} alt="" />
+            }
               </div>
             ))}
           </div>
