@@ -12,7 +12,8 @@ const DoctorAppointments = () => {
     cancelappointment,
   } = useContext(DoctorContext);
 
-  const { calculateAge, currency } = useState(AppContext);
+ 
+  const {calculateAge,currency} = useContext(AppContext)
 
   useEffect(() => {
     if (dToken) {
@@ -48,12 +49,10 @@ const DoctorAppointments = () => {
               />{" "}
               <p>{item?.userData?.name}</p>
             </div>
-            <p className="text-xs inline border-primary px-2 border rounded-full">
-              {item.payment ? "Online" : "CASH"}
-            </p>
-            {/* <p className="max-sm:hidden">{calculateAge(item?.userData?.dob)}</p> */}
+          
+            <p className="max-sm:hidden">{calculateAge(item?.userData?.dob)}</p> 
             <p>
-              {item.slotDate},{" "}
+              {item.slotDate}{" "}
               {new Date(item.date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",

@@ -14,16 +14,14 @@ const Navbar = () => {
    const logout = () => {
       
      atoken &&  setAToken('')
+     localStorage.removeItem('aToken');
+     
+     dToken  && setDToken('')
+     localStorage.removeItem('dToken')
+     
      navigate('/')
-     localStorage.removeItem('atoken');
-       
-   
-       dToken  && setDToken('')
-        localStorage.removeItem('dToken')
-       
    
     
-      
    };
 
 

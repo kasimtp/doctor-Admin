@@ -9,8 +9,8 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     
-    const { setAToken } = useContext(DoctorContext)
-    const {setDToken,dToken} = useContext(AdminContext)
+    const {  setDToken,dToken } = useContext(DoctorContext)
+    const {setAToken, } = useContext(AdminContext)
 
     const onsubmitHandler = async (event) => {
         event.preventDefault() 
@@ -21,7 +21,7 @@ const Login = () => {
                 
                 if (data.success) {
                     localStorage.setItem('aToken', data.token)
-                    // setAToken(data.token)
+                    setAToken(data.token)
                     console.log(data.token)
                 } else {
                     toast.error(data.message)
@@ -31,7 +31,7 @@ const Login = () => {
                 
                 if (data.success) {
                     localStorage.setItem('dToken', data.token)
-                    // setDToken(data.token)
+                    setDToken(data.token)
                     console.log(data.token)
                 } else {
                     toast.error(data.message)

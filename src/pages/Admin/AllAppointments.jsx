@@ -48,7 +48,7 @@ const AllAppointments = () => {
                   <img className="w-8 rounded-full" src={item?.userData?.image} alt="" /> <p>{item?.userData?.name}</p>
                 </div>
                 <p className="max-sm:hidden">{calculateAge(item?.userData?.dob)}</p>
-                <p>{item.slotDate}, {new Date(item.date).toLocaleDateString("en-US", {
+                <p>{item.slotDate} {new Date(item.date).toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
